@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <script type="text/javascript" src="knockout-3.0.0.js"></script>
+  <link rel="stylesheet" href="css/materialize.css">
+</head>
+<body>
+  <div style="width: 100%; padding: 20px;">
+    <div style="display: table; width: 100%;">
+      <div style="display: table-cell; width: 30%;">
+        <table class="striped">
+          <tbody data-bind="foreach: awayRoster">
+            <tr>
+              <td data-bind="click: $parent.playerClicked">
+                <span style="font-weight: 700" data-bind="text: position"></span>&nbsp;&nbsp;
+                <span data-bind="text: firstName"></span>&nbsp;<span data-bind="text: lastName"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display: table-cell; width: 40%;">
+        <center>
+          <span data-bind="text: awayTeam().mascot"></span> @
+          <span data-bind="text: homeTeam().mascot"></span>
+          <br><br><br>
+          Current Batter:
+          <span data-bind="text: currentBatter().lastName"></span>
+          <br><br>
+          <br>
+          <a class="waves-effect waves-light btn" data-bind="click: incrementBalls">
+            <span data-bind="text: currentBalls"></span> balls
+          </a>
+          <a class="waves-effect waves-light btn" data-bind="click: incrementStrikes">
+            <span data-bind="text: currentStrikes"></span> strikes
+          </a>
+
+          <br>
+          <a class="waves-effect waves-light btn" data-bind="click: incrementOuts">
+            <span data-bind="text: currentOuts"></span> outs
+          </a>&nbsp;
+
+        </center>
+      </div>
+      <div style="display: table-cell; width: 30%;">
+        <table class="striped">
+          <tbody data-bind="foreach: homeRoster">
+            <tr>
+              <td data-bind="click: $parent.playerClicked">
+                <span style="font-weight: 700" data-bind="text: position"></span>&nbsp;&nbsp;
+                <span data-bind="text: firstName"></span>&nbsp;<span data-bind="text: lastName"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="baseball.js"></script>
+</body>
+</html>
